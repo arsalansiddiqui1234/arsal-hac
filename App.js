@@ -1,19 +1,15 @@
-import Auth from "./components/Auth";
-import Dashboard from "./components/Dashboard";
-import { useUserContext} from "./context/userContext";
-// import './App.css';
-
-
-
-function App() {
-  const { loading, error, user} = useUserContext()
-  return ( 
-  <div className="App">
-    {error && <p className="error">{error}</p>}
-    {loading ? <h2>Loading...</h2> : <>{user ? <Dashboard/> : <Auth />} </>}
-    </div>
-  
+import { StatusBar } from 'expo-status-bar';
+import React from 'react';
+import { StyleSheet, Text, View } from 'react-native';
+// import HomeScreen from './Screen/HomeScreen';
+import MyStack from './Screen/StackNavigator';
+import { NavigationContainer } from '@react-navigation/native';
+import 'react-native-gesture-handler';
+export default function App() {
+  return (
+    <NavigationContainer>
+    <MyStack />
+    </NavigationContainer>
   );
 }
 
-export default App;
